@@ -1,0 +1,21 @@
+
+<form class="container login-form "> 
+  <h3 class ="login-title">Login</h3>
+  <hr>
+    <div class="form-group row">
+      <label for="name"> User name:</label>
+      <input type="text" class="form-control" id="name"  [(ngModel)]="loginName.name" name="Name">
+    </div>
+    <p>{{loginName.name}}</p>
+
+    <div class="form-group row">
+      <label>Password</label>
+      <input id="password" type="password">
+    </div> 
+    <a [routerLink]="['/user-account']"><button class="btn btn-primary btn-lg btn-login" >Login</button></a>
+    <!-- <a routerLink="/plan"><button class="btn btn-primary btn-lg btn-login" >New User</button></a> -->
+    <!-- <router-outlet></router-outlet> -->
+    
+</form>
+
+    

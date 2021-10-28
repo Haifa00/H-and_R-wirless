@@ -1,0 +1,22 @@
+
+/* "install" ng add @ng-bootstrap/ng-bootstrap*/
+.login-form {
+    width: 100%;
+    padding: 5%;
+    margin-top: 10%;
+    background-color:white;
+    border-radius: 20px;
+  }
+
+  .login-title{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    
+  }
+  .btn-login{
+    margin-left:90%;
+    margin-top: 8%;
+    color: black;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+  }

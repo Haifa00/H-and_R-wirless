@@ -1,0 +1,9 @@
+
+spring:
+  datasource:
+    url: h-r-telcom-portal-server.mysql.database.azure.com
+    username: iftakon@h-r-telcom-portal-server
+    password: SkillStorm123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    <!--server:  port: 4567 -->
+  

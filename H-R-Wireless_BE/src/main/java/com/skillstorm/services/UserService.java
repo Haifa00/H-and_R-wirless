@@ -14,18 +14,18 @@ public class UserService {
 
 	
 	
-	public Optional<User> findUser(User user) {
+	public Optional<User> findByUserName(User user) {
 		
-		return repository.findUser(user);
+		return repository.findByUserName(user.getUserName());
 	}
 	
 	public User saveUser(User user) {
-		return repository.saveUser(user);
+		return repository.save(user);
 	}
 	
-	public User updateUser(User user) {
-		return repository.updateUser(user);
-	}
+//	public User updateUser(User user) {
+//		return repository.updateUser(user);
+//	}
 
 
 	public void deleteUser(User user) {

@@ -31,8 +31,8 @@ public class UserController {
 	UserService service;
 	
 	@GetMapping
-	public ResponseEntity<User> findUser(User user){
-		return null;
+	public Optional<User> findByUserName(User user){
+		return service.findByUserName(user);
 	}
 	
 	@PostMapping

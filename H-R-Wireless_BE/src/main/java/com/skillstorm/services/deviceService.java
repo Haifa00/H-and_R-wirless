@@ -15,16 +15,16 @@ public class deviceService {
 	
 	public Optional<Device> findDevice(Device device) {
 		
-		return repository.findDevice(device);
+		return repository.findByDeviceId(device);
 	}
 	
 	public Device saveDevice(Device device) {
-		return repository.saveDevice(device);
+		return repository.save(device);
 	}
 	
-	public Device updateDevice(Device device) {
-		return repository.updateDevice(device);
-	}
+//	public Device updateDevice(Device device) {
+//		return repository.update(device);
+//	}
 
 
 	public void deleteDevice(Device device) {

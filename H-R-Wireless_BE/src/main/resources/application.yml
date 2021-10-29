@@ -1,9 +1,9 @@
 
 spring:
   datasource:
-    url: 
-    username: 
-    password: 
+    url: jdbc:mysql://h-r-telcom-portal-server.mysql.database.azure.com:3306/h-r-telecom-portaldb?useSSL=true&requireSSL=false 
+    username: iftakon@h-r-telcom-portal-server
+    password: SkillStorm123
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    <!--server:  port: 4567 -->
+#    server:  port: 4567 
   

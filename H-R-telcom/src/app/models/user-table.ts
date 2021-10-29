@@ -1,6 +1,9 @@
 
 
+
+
 // For mock data genrates for the client
+
 interface UserTable {
   phoneNumber: number;
   device: string;
@@ -31,6 +34,7 @@ interface UserTable {
       phoneNumber: 2023658974,
       device: 'iPhone X',
       activatedOn: '08/13/2018'
+
     }]
 
   

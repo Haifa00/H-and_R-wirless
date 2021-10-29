@@ -1,12 +1,13 @@
 
+
 <form class="container login-form "> 
   <h3 class ="login-title">Login</h3>
   <hr>
     <div class="form-group row">
       <label for="name"> User name:</label>
-      <input type="text" class="form-control" id="name"  [(ngModel)]="loginName.name" name="Name">
+      <input type="text" class="form-control" id="name"  [(ngModel)]="loginName.username" name="Name">
     </div>
-    <p>{{loginName.name}}</p>
+    <p>{{loginName.username}}</p>
 
     <div class="form-group row">
       <label>Password</label>

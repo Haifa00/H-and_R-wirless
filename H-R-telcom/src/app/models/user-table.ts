@@ -1,4 +1,9 @@
 
+
+
+
+// For mock data genrates for the client
+
 interface UserTable {
   phoneNumber: number;
   device: string;
@@ -27,8 +32,9 @@ interface UserTable {
   export const WORKACCOUNT: UserTable[] = [
     {
       phoneNumber: 2023658974,
-      device: 'iPhone 13 Max',
-      activatedOn: '08/13/2010'
+      device: 'iPhone X',
+      activatedOn: '08/13/2018'
+
     }]
 
   

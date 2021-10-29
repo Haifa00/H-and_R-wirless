@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives hereimport { 
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PlanesComponent } from './components/planes/planes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserAccountComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    PlanesComponent
   ],
   imports: [
     BrowserModule,
@@ -28,3 +30,4 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

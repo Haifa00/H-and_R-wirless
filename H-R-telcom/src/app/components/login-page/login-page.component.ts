@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Username } from '../../models/UserName';
+import { User } from '../../models/User';
 
 
 @Component({
@@ -9,11 +9,14 @@ import { Username } from '../../models/UserName';
 })
 export class LoginPageComponent implements OnInit {
 
-  loginName:Username ={
-    name:"",
-    password:0
+  loginName:User ={
+    username:"",
+    password:0,
+    userPlans:[]
+  }
 
-  };
+
+  
 
   constructor() { }
 

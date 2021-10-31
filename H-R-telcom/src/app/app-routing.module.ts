@@ -10,6 +10,7 @@ import { UserAccountComponent } from './components/user-account/user-account.com
 const routes: Routes = [
   {path: '', redirectTo: '/user-account', pathMatch: 'full' },
   {path:"user-account",component:UserAccountComponent},
+
   {path:"login-form",component:LoginPageComponent},
   {path:'plans',component:PlanesComponent},
   {path: 'all-devices', component: DevicesTableComponent }

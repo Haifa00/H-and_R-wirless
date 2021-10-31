@@ -1,13 +1,16 @@
 
 // Define the Device object by the attribute in the database table
 export class Device {
-	deviceID?: number;// the id is generated from the database so we wont always have it?
-	deviceModel: any;
+	device_id: number
+	model: String;
 	price: number;
+	image: any;
 
-	constructor(deviceModel:any, price:number) {
-		this.deviceModel = deviceModel;
+	constructor( model:String, price:number, image:any, device_id: number) {
+		this.device_id = device_id;
+		this.model = model;
 		this.price = price;
+		this.image = image;
 	}
 }
 

@@ -13,6 +13,7 @@ import { PlanesComponent } from './components/planes/planes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewUserComponent } from './components/new-user/new-user.component';
 
+import { DevicesTableComponent } from './components/devices-table/devices-table.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NewUserComponent } from './components/new-user/new-user.component';
     UserAccountComponent,
     LoginPageComponent,
     PlanesComponent,
-    NewUserComponent
+    NewUserComponent,
+    DevicesTableComponent
   ],
   imports: [
     BrowserModule,

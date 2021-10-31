@@ -1,5 +1,6 @@
 package com.skillstorm.services;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,14 +9,14 @@ import com.skillstorm.beans.User;
 import com.skillstorm.data.DeviceRepository;
 
 @Service
-public class deviceService {
+public class DeviceService {
 
 	@Autowired
 	DeviceRepository repository;
 	
-	public Optional<Device> findDevice(Device device) {
+	public List<Device> findAll() {
 		
-		return repository.findByDeviceId(device);
+		return repository.findAll();
 	}
 	
 	public Device saveDevice(Device device) {

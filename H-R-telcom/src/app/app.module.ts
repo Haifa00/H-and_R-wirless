@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import ng form
@@ -10,6 +10,9 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlanesComponent } from './components/planes/planes.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NewUserComponent } from './components/new-user/new-user.component';
+
 import { DevicesTableComponent } from './components/devices-table/devices-table.component';
 
 @NgModule({
@@ -18,6 +21,7 @@ import { DevicesTableComponent } from './components/devices-table/devices-table.
     UserAccountComponent,
     LoginPageComponent,
     PlanesComponent,
+    NewUserComponent,
     DevicesTableComponent
   ],
   imports: [

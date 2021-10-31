@@ -26,9 +26,17 @@ public class DeviceService {
 //	public Device updateDevice(Device device) {
 //		return repository.update(device);
 //	}
-
-
-	public void deleteDevice(Device device) {
-		
-	}
-}
+//
+//	public Device saveDevice(Device device) {
+//		return repository.save(device);
+//	}
+//
+////	public Device updateDevice(Device device) {
+////		return repository.update(device);
+////	}
+//
+//
+//	public void deleteDevice(Device device) {
+//
+//	}
+//}

@@ -10,8 +10,10 @@ import { User } from '../../models/User';
 export class LoginPageComponent implements OnInit {
 
   loginName:User ={
+    firstname:"",
+    lastname:"",
     username:"",
-    password:0,
+    password:"",
     userPlans:[]
   }
 

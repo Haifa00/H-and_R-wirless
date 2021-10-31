@@ -1,0 +1,25 @@
+.header{
+    color: white;
+    background-color: blue;
+    font-family: 'Times New Roman', Times, serif;
+}
+.card-body{
+    color: white;
+    background-color:rgb(9, 140, 216);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 120%;
+
+}
+.card-size{
+    padding-top: 15%;
+    margin:20px;
+}
+.btn-card{
+    margin-top: 40%;
+    background-color: lightgray;
+    margin-left: 30%;
+    width: 40%;
+    font-weight: bold;
+  
+    
+}

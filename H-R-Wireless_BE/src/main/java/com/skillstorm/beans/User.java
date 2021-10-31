@@ -1,118 +1,97 @@
 package com.skillstorm.beans;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="USERS")
+@Table(name="users")
 public class User {
-	
+
 	@Id
-	private String userName;
-	
-	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="userid")
+	private Integer userId; // for join the type must be object name of the class
+
+	@Column(name="firstname")
+	@NotNull
+	private String firstname;
+
+	@Column(name="lastname")
+	@NotNull
+	private String lastname;
+
 	@NotBlank
 	@NotNull
-	private String firstName;
+	@Column(name="username")
+	private String username;
 
-	@Column
-	@NotBlank
-	@NotNull
-	private String lastName;
+	@Column(name="password")
+	private String password;
 
-	@Column
-	private String email;
-	
-	@Column
-	private int Idbill;
+	@OneToMany(mappedBy = "user")
+	private Set<UserPlan> userPlan= new HashSet<>();
 
-	public User(String userName, @NotBlank String firstName, @NotBlank String lastName, String email, int idbill) {
-		
-		this.userName = userName;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		Idbill = idbill;
+	public User() {
 	}
 
-	public User(String userName, @NotBlank String firstName, @NotBlank String lastName, int idbill) {
-		
-		this.userName = userName;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		Idbill = idbill;
+	public User( String firstname, String lastname, String username, String password) {
+
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.password = password;
 	}
 
-	public String getUserName() {
-		return userName;
+	public Integer getUserId() {
+		return userId;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public int getIdbill() {
-		return Idbill;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setIdbill(int idbill) {
-		Idbill = idbill;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	@Override
-	public String toString() {
-		return "User [userName=" + userName + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", Idbill=" + Idbill + "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(Idbill, email, firstName, lastName, userName);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		return Idbill == other.Idbill && Objects.equals(email, other.email)
-				&& Objects.equals(firstName, other.firstName) && Objects.equals(lastName, other.lastName)
-				&& Objects.equals(userName, other.userName);
-	}
-	
-	
+//	public Set<UserPlan> getUserPlan() {
+//		return userPlan;
+//	}
+//
+//	public void setUserPlan(Set<UserPlan> userPlan) {
+//		this.userPlan = userPlan;
+//	}
 }

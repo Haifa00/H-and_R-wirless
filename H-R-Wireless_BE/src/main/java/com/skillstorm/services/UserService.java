@@ -1,6 +1,9 @@
 package com.skillstorm.services;
 
+import java.util.List;
 import java.util.Optional;
+
+import com.skillstorm.beans.Plans;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.skillstorm.beans.User;
@@ -12,23 +15,28 @@ public class UserService {
 	@Autowired
 	UserRepository repository;
 
-	
-	
-	public Optional<User> findByUserName(User user) {
-		
-		return repository.findByUserName(user.getUserName());
+    public List<User> findAll() {
+		List<User> allUsers = repository.findAll();
+		return allUsers;
 	}
-	
-	public User saveUser(User user) {
-		return repository.save(user);
+
+
+	public List<User> findByUserName(String name) {
+
+		return  repository.findByUsername(name);
 	}
-	
+
+	public User save(User user) {
+		User newUser = repository.save(user);
+		return newUser;
+	}
+
 //	public User updateUser(User user) {
 //		return repository.updateUser(user);
 //	}
 
 
-	public void deleteUser(User user) {
-		
-	}
+//	public void deleteUser(User user) {
+//
+//	}
 }

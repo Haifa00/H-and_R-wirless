@@ -5,14 +5,14 @@ export class Plan{
 
     planId?: number;// the id is generated from the database so we wont always have it?
     name: string;
-    minLines:number;
+    numberOfLines:number;
     description: string;
     pricePerLine: number;
     line:Lines[];
 
-    constructor(name: string, minLines: number, description: string, pricePerLine: number,line:Lines[]){
+    constructor(name: string, numberOfLines: number, description: string, pricePerLine: number,line:Lines[]){
         this.name = name;
-        this.minLines = minLines;
+        this.numberOfLines = numberOfLines;
         this.description = description;
         this.pricePerLine = pricePerLine;
         this.line=line;

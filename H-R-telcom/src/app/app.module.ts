@@ -10,20 +10,25 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlanesComponent } from './components/planes/planes.component';
+import { HttpClientModule } from '@angular/common/http';
+import { NewUserComponent } from './components/new-user/new-user.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UserAccountComponent,
     LoginPageComponent,
-    PlanesComponent
+    PlanesComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
    
   ],
   providers: [],

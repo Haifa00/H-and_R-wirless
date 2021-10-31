@@ -1,0 +1,30 @@
+
+
+<form class="container login-form " (ngSubmit)="handleSubmit()"> 
+    <h3 class ="login-title">New User</h3>
+    <hr>
+      <div class="form-group row">
+        <label for="name"> First Name:</label>
+        <input type="text" class="form-control" id="name"  name="Name" placeholder="Your First Name" [(ngModel)]="formData.firstname">
+      </div>
+     
+      <div class="form-group row">
+        <label for="name"> Last Name:</label>
+        <input type="text" class="form-control" id="name"  name="Name" placeholder="Your Last Name" [(ngModel)]="formData.lastname">
+      </div>
+      <div class="form-group row">
+        <label for="name"> User Name:</label>
+        <input type="text" class="form-control" id="name"  name="Name" placeholder="Must Be Unique" [(ngModel)]="formData.username">
+      </div>
+  
+      <div class="form-group row">
+        <label>Password</label>
+        <input id="password" type="password" placeholder="Your Password" [(ngModel)]="formData.password">
+      </div> 
+
+     <a  [routerLink]="['/plans']"><input type="submit" value="Login" class="btn btn-primary btn-lg btn-new"></a> 
+     
+   
+  </form>
+  
+      

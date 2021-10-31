@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { NewUserComponent } from './components/new-user/new-user.component';
 import { PlanesComponent } from './components/planes/planes.component';
 
 
@@ -9,11 +10,9 @@ import { UserAccountComponent } from './components/user-account/user-account.com
 const routes: Routes = [
   { path: '', redirectTo: '/user-account', pathMatch: 'full' },
   {path:"user-account",component:UserAccountComponent},
-
+  {path:"new-user",component:NewUserComponent},
   {path:"login-form",component:LoginPageComponent},
-
-  {path:"login-form",component:LoginPageComponent},
-  {path:'plans',component:PlanesComponent}
+  {path:"plans",component:PlanesComponent}
 
 ];
 

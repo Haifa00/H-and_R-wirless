@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import ng form
@@ -10,20 +10,23 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlanesComponent } from './components/planes/planes.component';
+import { DevicesTableComponent } from './components/devices-table/devices-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserAccountComponent,
     LoginPageComponent,
-    PlanesComponent
+    PlanesComponent,
+    DevicesTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
    
   ],
   providers: [],

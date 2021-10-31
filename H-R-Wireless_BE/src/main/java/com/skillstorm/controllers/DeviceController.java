@@ -18,37 +18,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import java.util.logging.Logger;
 import com.skillstorm.beans.Device;
 import com.skillstorm.beans.User;
 import com.skillstorm.services.UserService;
-import com.skillstorm.services.deviceService;
+import com.skillstorm.services.DeviceService;
 
 @RestController		
-@RequestMapping("*We need to decide the url*")	
-//@CrossOrigin("http://localhost:4200")
-public class deviceController {
+@RequestMapping("devices/v1")	
+@CrossOrigin("http://localhost:4200")
+public class DeviceController {
 
 	@Autowired
-	deviceService service;
+	DeviceService service;
 	
+	private static Logger log = Logger.getAnonymousLogger();
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping
-	public ResponseEntity<List<Device>> findDevice(Device device){
-		return null;
-	}
-	
-	@PostMapping
-	public ResponseEntity<Device> SaveDevice(Device device){
-		return null;
-	}
-	
-	@PutMapping
-	public ResponseEntity<Device> updateDevice(Device device){
-		return null;
-	}
-	
-	@DeleteMapping
-	public void deleteDevice(Device device) {
+	public ResponseEntity<List<Device>> findAll(){
+		log.info("findAll() was called");
+		return  new ResponseEntity<List<Device>>(service.findAll(), HttpStatus.OK);
 		
 	}
+	
+//	@PostMapping
+//	public ResponseEntity<Device> SaveDevice(Device device){
+//		return null;
+//	}
+//	
+//	@PutMapping
+//	public ResponseEntity<Device> updateDevice(Device device){
+//		return null;
+//	}
+//	
+//	@DeleteMapping
+//	public void deleteDevice(Device device) {
+//		
+//	}
 }

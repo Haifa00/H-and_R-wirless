@@ -8,12 +8,16 @@ import { Lines } from './models/Lines';
 })
 export class LinesService {
 
-  url ='http://localhost:8080/UserPlanLine/v1/';
+  url ='http://localhost:8080/UserPlanLine/v1';
 
   constructor(private httpClient: HttpClient) { }
 
 
-  createLine(line:Lines): Observable<any> {
-		return this.httpClient.post(this.url, line);
+  saveLines(lines:Lines[]): Observable<any> {
+      console.log(JSON.stringify(lines));
+		return this.httpClient.post(this.url + "/saveLines", lines);
+	}
+  generatePhoneNumbers(): Observable<any> {
+		return this.httpClient.get(this.url + "/phoneNumbers");
 	}
 }

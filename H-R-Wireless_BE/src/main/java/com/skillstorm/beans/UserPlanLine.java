@@ -1,13 +1,10 @@
 package com.skillstorm.beans;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -19,45 +16,34 @@ public class UserPlanLine {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int line_Id;
 	
-	@Column(unique=true) 
+	@Column(unique=true, name="phoneNumber") 
 	//@Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int phonenumber;
+	private long phoneNumber;
 	
-	@Column
-	private int userplan_Id;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "userPlan_Id")
+	private UserPlan userPlan;
 	
-	
-	
-	@Column
+	@Column(name = "device_Id")
 	private int device_Id;
-		
-		
+	
 	public UserPlanLine() {
 		super();
 	}
 
-		
-	public UserPlanLine(int userPlan_Id, int device_Id) {
-		
-		this.userplan_Id = userPlan_Id;
-		this.device_Id = device_Id;
-	}
-
-
-
-	public UserPlanLine(@NotNull int phoneNumber, int userPlan_Id, int device_Id) {
+	public UserPlanLine(@NotNull long phoneNumber, UserPlan userPlan, int device_Id) {
 	
-		this.phonenumber = phoneNumber;
-		this.userplan_Id = userPlan_Id;
+		this.phoneNumber = phoneNumber;
+		this.userPlan = userPlan;
 		this.device_Id = device_Id;
 	}
 	
-	public UserPlanLine(int line_Id, @NotNull int phoneNumber, int userPlan_Id, int device_Id) {
+	public UserPlanLine(int line_Id, @NotNull long phoneNumber, UserPlan userPlan, int device_Id) {
 		
 		this.line_Id = line_Id;
-		this.phonenumber = phoneNumber;
-		this.userplan_Id = userPlan_Id;
+		this.phoneNumber = phoneNumber;
+		this.userPlan = userPlan;
 		this.device_Id = device_Id;
 	}
 	
@@ -69,20 +55,20 @@ public class UserPlanLine {
 		this.line_Id = line_Id;
 	}
 
-	public int getPhoneNumber() {
-		return phonenumber;
+	public long getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPhoneNumber(int phoneNumber) {
-		this.phonenumber = phoneNumber;
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
-	public int getUserPlan_Id() {
-		return userplan_Id;
+	public UserPlan getUserPlan() {
+		return userPlan;
 	}
 
-	public void setUserPlan_Id(int userPlan_Id) {
-		this.userplan_Id = userPlan_Id;
+	public void setUserPlan(UserPlan userPlan) {
+		this.userPlan = userPlan;
 	}
 
 	public int getDevice_Id() {
@@ -95,7 +81,7 @@ public class UserPlanLine {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(device_Id, line_Id, phonenumber, userplan_Id);
+		return Objects.hash(device_Id, line_Id, phoneNumber, userPlan);
 	}
 
 	@Override
@@ -107,13 +93,13 @@ public class UserPlanLine {
 		if (getClass() != obj.getClass())
 			return false;
 		UserPlanLine other = (UserPlanLine) obj;
-		return device_Id == other.device_Id && line_Id == other.line_Id && phonenumber == other.phonenumber
-				&& userplan_Id == other.userplan_Id;
+		return device_Id == other.device_Id && line_Id == other.line_Id && phoneNumber == other.phoneNumber
+				&& userPlan == other.userPlan;
 	}
 
 	@Override
 	public String toString() {
-		return "UserPlanLine [line_Id=" + line_Id + ", phoneNumber=" + phonenumber + ", userPlan_Id=" + userplan_Id
+		return "UserPlanLine [line_Id=" + line_Id + ", phoneNumber=" + phoneNumber + ", userPlan=" + userPlan
 				+ ", device_Id=" + device_Id + "]";
 	}
 

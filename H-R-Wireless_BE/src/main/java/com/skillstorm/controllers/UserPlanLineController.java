@@ -43,18 +43,13 @@ public class UserPlanLineController {
 //		log.info("findAll() was called");
 //		return  new ResponseEntity<List<UserPlanLine>>(service.findAll(), HttpStatus.OK);
 //	}
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping
-	public ResponseEntity<UserPlanLine> save(@RequestBody UserPlanLine userPlanLine){
-		log.info("save() method called");
-		return new ResponseEntity<>(service.save(userPlanLine), HttpStatus.CREATED);
-	}
+	
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping("phoneNumbers")
-	public  ResponseEntity<Boolean> existsByPhoneNumber(@RequestBody int phoneNumber){
-		log.info("existsByPhoneNumber() method called");
-		return new ResponseEntity<>(service.existsByPhonenumber(phoneNumber), HttpStatus.CREATED);
+	@GetMapping("phoneNumbers")
+	public  ResponseEntity<List<Long>> generatePhoneNumbers(){
+		
+		return new ResponseEntity<>(service.generatePhoneNumbers(), HttpStatus.OK);
 	}
 //	@PutMapping
 //	public ResponseEntity<UserPlanLine> update(UserPlanLine userPlanLine){
@@ -68,5 +63,17 @@ public class UserPlanLineController {
 //		
 //	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping("saveLines")
+	public ResponseEntity<UserPlanLine[]> save(@RequestBody List<UserPlanLine> lines){
+		log.info("existsByPhoneNumber() method called" + lines.toString());
+		UserPlanLine[] l = lines.stream().toArray(UserPlanLine[]::new);
+		return new ResponseEntity<>(service.saveBulk(l) ,HttpStatus.OK);
+	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping("saveLine")
+	public ResponseEntity<UserPlanLine> save(@RequestBody UserPlanLine line){
+		return new ResponseEntity<>(service.save(line) ,HttpStatus.OK);
+	}
 }

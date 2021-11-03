@@ -17,18 +17,18 @@ public class Device {
 	@Id
 	private int device_id;
 	
-	@Column
+	@Column(name = "model")
 	@NotBlank
 	@NotNull
 	private String model;
 	
 	
-	@Column
+	@Column(name = "price")
 	@NotBlank
 	@NotNull
 	private int price;
 
-	@Column
+	@Column(name = "image")
 	@NotNull
 	private String image;
 

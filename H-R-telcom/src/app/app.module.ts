@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewUserComponent } from './components/new-user/new-user.component';
 
 import { DevicesTableComponent } from './components/devices-table/devices-table.component';
+import { CreateLinesComponent } from './components/create-lines/create-lines.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DevicesTableComponent } from './components/devices-table/devices-table.
     LoginPageComponent,
     PlanesComponent,
     NewUserComponent,
-    DevicesTableComponent
+    DevicesTableComponent,
+    CreateLinesComponent
   ],
   imports: [
     BrowserModule,

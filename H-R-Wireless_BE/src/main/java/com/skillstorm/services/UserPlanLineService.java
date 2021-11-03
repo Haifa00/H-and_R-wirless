@@ -1,9 +1,13 @@
 package com.skillstorm.services;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.skillstorm.beans.UserPlanLine;
 import com.skillstorm.data.DeviceRepository;
@@ -15,19 +19,44 @@ public class UserPlanLineService {
 	@Autowired
 	UserPlanLineRepository repository;
 	
+	private static Logger log = Logger.getAnonymousLogger();
+	
 	public List<UserPlanLine> findByUserPlan_Id(UserPlanLine userPlanLine) {
 		
-		return repository.findByUserPlan_Id(userPlanLine.getUserPlan_Id());
+		return repository.findByUserPlan_Id(userPlanLine.getUserPlan().getId());
 	}
-
-	public UserPlanLine save(UserPlanLine userPlanLine) {
-		
-		return repository.save(userPlanLine);
+	
+	public UserPlanLine save(UserPlanLine line) {
+		return repository.save(line);
 	}
-
-	public boolean existsByPhonenumber(int phonenumber) {
+	
+	@Transactional(propagation = Propagation.REQUIRES_NEW, rollbackFor = Exception.class)
+	public UserPlanLine[] saveBulk(UserPlanLine[] lines) {
+		UserPlanLine[] dbLines = new UserPlanLine[lines.length];
+		int i = 0;
+		for(UserPlanLine line : lines) {
+			log.info(""+line);
+			dbLines[i] = (repository.save(line));
+			i++;
+		}
+		return dbLines;
+	}
+	
+	
+	
+	
+	public List<Long> generatePhoneNumbers() {
 		
-		return repository.existsByPhonenumber(phonenumber);
+		   List<Long> phoneNumbers = new ArrayList<Long>();
+		   long phoneNumber;
+		   for( int i = 0; i < 12;){
+			  phoneNumber = Long.parseLong( (int)(Math.floor(10000 + Math.random() * 90000)) + "" + (int)(Math.floor(10000 + Math.random() * 90000)));
+		  if(!(repository.existsByPhoneNumber(phoneNumber))){
+		  phoneNumbers.add(phoneNumber);
+		  i++;
+		  }
+		}
+		return phoneNumbers;
 	}
 
 //	public UserPlanLine update(UserPlanLine userPlanLine) {

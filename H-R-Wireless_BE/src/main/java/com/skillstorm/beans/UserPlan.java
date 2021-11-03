@@ -2,7 +2,10 @@ package com.skillstorm.beans;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name="userplan")
@@ -25,7 +28,12 @@ public class UserPlan {
     @Column(name="nickname")
     private String nickname;
 
-    public UserPlan() {
+    
+    @OneToMany(mappedBy = "userPlan")
+	private Set<UserPlanLine> userPlanLines;
+    
+  
+	public UserPlan() {
     }
 
     public UserPlan(Plans plan, User user, String nickname) {
@@ -88,4 +96,16 @@ public class UserPlan {
                 ", nickname='" + nickname + '\'' +
                 '}';
     }
+    
+    
+    
+    
+    public Set<UserPlanLine> getUserPlanLines() {
+  		return userPlanLines;
+  	}
+
+  	public void setUserPlanLines(Set<UserPlanLine> userPlanLines) {
+  		this.userPlanLines = userPlanLines;
+  	}
+
 }

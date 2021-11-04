@@ -1,6 +1,7 @@
 package com.skillstorm.services;
 
 
+import com.skillstorm.beans.User;
 import com.skillstorm.beans.UserPlan;
 import com.skillstorm.beans.UserPlanLine;
 import com.skillstorm.data.UserPlanRepository;
@@ -37,7 +38,13 @@ public class UserPlanService {
 		
 		return repository.save(userplan);	
 		}
-    
+  
+	
+	public Optional<UserPlan> findByUserPlan_Id(int userPlan_Id) {
+		log.info(""+ userPlan_Id);
+		return repository.findById(userPlan_Id);
+	}
+
 
 
 }

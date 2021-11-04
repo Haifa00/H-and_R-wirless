@@ -66,18 +66,24 @@ saveLines():void{
   if(this.lines.length == this.plan.numberOfLines){//this.plan.numberOfLines
   for(let i = 0; i < this.lines.length; i++){
     for(let j  = i+1; j < this.lines.length; j++){
-      if(this.lines[i].phonenumber == this.lines[j].phonenumber){
+      if(this.lines[i].phonenumber == this.lines[j].phonenumber || (this.lines[i].phonenumber!.toString().length != 10)){
         this.show();
         return;
       }
     }
   }
-  let user:User = this.dataService.sharedUser;
+  var resultConfirm = confirm( "Great! Your new Plan is now Ready!<br>" +  "Clicking OK means that you agree to our Term and Conditions for creating a plan");
+ if ( resultConfirm ) { 
+   let user:User = this.dataService.sharedUser;
   this.userPlanService.userPlan.user = user;
     this.userPlanService.userPlan.nickname = this.nickname;
     this.userPlanService.createUserPlan().subscribe(result => {
       this.userPlan = result;
       console.log(result);
+        
+    
+  // the user clicked ok
+   this.route.navigate(['/', 'user-account']);
     
     
     for( let i = 0; i < this.plan.numberOfLines; i++){
@@ -86,18 +92,15 @@ saveLines():void{
 
     this.lineService.saveLines(this.lines).subscribe(result =>{
       this.lines = result;
-      var resultConfirm = confirm( "Great! Your new Plan is now Ready!<br>" +  "Clicking OK means that you agree to our Term and Conditions for creating a plan");
-      
-    if ( resultConfirm ) {
-  // the user clicked ok
-   this.route.navigate(['/', 'user-account']);
-    } else {
-  // the user clicked cancel or closed the confirm dialog so we do nothing...
-
-    }
+     
+  
      
     });
     });
+  } else {
+  // the user clicked cancel or closed the confirm dialog so we do nothing...
+
+    }
   }
 
 }

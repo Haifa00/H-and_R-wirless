@@ -1,5 +1,7 @@
 package com.skillstorm.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -11,18 +13,17 @@ import java.util.Set;
 @Table(name="userplan")
 public class UserPlan {
     @Id
-    @Column(name="id")
+    @Column(name="userplan_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name="planid")
+    @JoinColumn(name="plan_id")
     @NotNull
     private Plans plan;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="userid")
-    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
     private User user;
 
     @Column(name="nickname")
@@ -32,9 +33,9 @@ public class UserPlan {
 	public UserPlan() {
     }
 
-    public UserPlan(Plans plan, User user, String nickname) {
+    public UserPlan(Plans plan,User user, String nickname) {
         this.plan = plan;
-        this.user = user;
+        this.user=user;
         this.nickname = nickname;
     }
 
@@ -70,17 +71,10 @@ public class UserPlan {
         this.nickname = nickname;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserPlan userPlan = (UserPlan) o;
-        return Objects.equals(id, userPlan.id) && Objects.equals(plan, userPlan.plan) && Objects.equals(user, userPlan.user) && Objects.equals(nickname, userPlan.nickname);
-    }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, plan, user, nickname);
+        return Objects.hash(id, plan, nickname);
     }
 
     @Override
@@ -92,4 +86,5 @@ public class UserPlan {
                 ", nickname='" + nickname + '\'' +
                 '}';
     }
+
 }

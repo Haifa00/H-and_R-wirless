@@ -1,23 +1,28 @@
 
 
-
+nav {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
 
 .title{
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bolder;
+    margin-left: 45px;
     font-size: 40px;
-    background-color: white;
-    padding-top: 15%;
-    padding-left: 3%;
-    padding-right: 3%;
-    padding-bottom: 3%;
+}
+.sub-title {
+    font-size: 20px;
+}
+.login-user {
+    font-size: 20px;
+    
 }
 
 .padding-nav{
-    margin-top:0;
+    margin: 25px;
+    background-color: lightgray;
    
     padding:1%;
-    background-color: rgb(13, 152, 211);
+  
 
 }
 

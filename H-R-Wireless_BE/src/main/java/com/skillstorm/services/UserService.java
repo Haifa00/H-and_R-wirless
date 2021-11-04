@@ -21,9 +21,9 @@ public class UserService {
 	}
 
 
-	public List<User> findByUserName(String name) {
+	public Optional<User> findByUserNameAndPassword(String username, String password) {
 
-		return  repository.findByUsername(name);
+		return  repository.findByUsernameAndPassword(username, password);
 	}
 
 	public User save(User user) {

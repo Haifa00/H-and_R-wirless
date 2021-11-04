@@ -10,4 +10,5 @@ import java.util.List;
 public interface PlanRepository extends JpaRepository<Plans,Integer> {
 
    // findAll() method already built on JpaRepository
+
 }

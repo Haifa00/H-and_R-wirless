@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DataService } from './data.service';
+import { User } from './models/User';
 
 
 @Component({
@@ -8,8 +10,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'H&R Wirless';
- 
 
+  constructor (private dataService:DataService) {
+
+  }
+ 
+get user():User {
+  return this.dataService.sharedUser;
+}
 
 
 }

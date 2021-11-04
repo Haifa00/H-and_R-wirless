@@ -1,4 +1,4 @@
-import { UserPlan } from "./userPlan";
+import { UserPlan } from "./UserPlan";
 
 
 // Define the User object by the attribute in the database table
@@ -6,7 +6,7 @@ export class User {
 	userId?: number; 
 	firstname: string;
 	lastname: string;
-    username: string; // Optional
+    username: string; 
     password: string; 
     // add array of user plans because every user may has more than one
     userPlans?:UserPlan[];

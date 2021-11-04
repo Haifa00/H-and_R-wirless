@@ -1,14 +1,35 @@
 <div class="container">
 
-    <div class="row card-size card-whole">
-        <div class="col-4"  *ngFor="let plan of planList">
-            <div class="card mb-3 " style="max-width: 18rem;">
-                <h2 class="card-header header">{{plan.name}}</h2>
-                <div class="card-body">
-                    <h3 class="card-title">{{plan.numberOfLines}} Lines</h3>
-                    <p class="card-text">{{plan.description}}.</p>
-                   
-                    <button type="button" class="btn btn-card ">${{plan.pricePerLine}} <br>Per Line</button>
+    <div class="row bar">
+        <div class="col-3 current">
+            <strong>Choose Plan</strong>
+        </div>
+        <div class="col-3">
+
+        </div>
+        <div class="col-3">
+
+        </div>
+        <div class="col-3">
+
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <div class="row">
+        <div class="col-4 wrapper" *ngFor="let plan of planList">
+            <div class="form-content">
+                <div class="form-header">
+                    <h2>{{plan.name}}</h2>
+                </div>
+                <div class="form-body">
+                    <h3>{{plan.numberOfLines}} Line(s)</h3>
+                    <p>{{plan.description}}.</p>
+                </div>
+                <div class="form-footer">
+                    <input id="price" type="submit" class="btn btn-card " value="${{plan.pricePerLine}} / Line"
+                        (click)="handleClick(plan)" />
                 </div>
             </div>
         </div>

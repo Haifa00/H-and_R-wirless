@@ -23,9 +23,13 @@ export class PlanesComponent implements OnInit {
   }
 
   handleClick(selectedPlan:Plan): void {
+
   
     this.dataService.newSelectedPlan=selectedPlan;
     
+
+    this.plan=selectedPlan;
+
     this.router.navigate(['/createLines']);
     
   }

@@ -1,5 +1,6 @@
 
-
+ <label for="nickname">Plan Nickname:  {{nickname}}</label>
+ <input id="nickname" [(ngModel)]="nickname" placeholder="nickname">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -9,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let i of [1,2,3];let indexOfElement=index;">
+        <tr *ngFor="let number of numbers;let indexOfElement=index;">
           <td>{{indexOfElement+1}}</td>
           <td class="overflow-hidden">
                <select id="pN" [(ngModel)]="lines[indexOfElement].phonenumber" >

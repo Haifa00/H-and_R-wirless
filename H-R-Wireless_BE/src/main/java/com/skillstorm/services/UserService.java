@@ -31,6 +31,12 @@ public class UserService {
 		return newUser;
 	}
 
+
+	public Optional<User> findByUserid(int userid) {
+		
+		return repository.findById(userid);
+	}
+
 //	public User updateUser(User user) {
 //		return repository.updateUser(user);
 //	}

@@ -20,4 +20,7 @@ export class LinesService {
   generatePhoneNumbers(): Observable<any> {
 		return this.httpClient.get(this.url + "/phoneNumbers");
 	}
+  getLinesByUserPlan_Id(userPlan_Id:number){
+    return this.httpClient.get(this.url + "/getLines/" + userPlan_Id);
+  }
 }

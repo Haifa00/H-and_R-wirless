@@ -17,7 +17,6 @@ public class UserPlanLine {
 	private int line_Id;
 	
 	@Column(unique=true, name="phonenumber") 
-	//@Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long phonenumber;
 	

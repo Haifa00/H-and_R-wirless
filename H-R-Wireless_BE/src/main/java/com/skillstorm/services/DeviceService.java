@@ -22,7 +22,7 @@ public class DeviceService {
 	public Device saveDevice(Device device) {
 		return repository.save(device);
 	}
-}
+
 	
 //	public Device updateDevice(Device device) {
 //		return repository.update(device);

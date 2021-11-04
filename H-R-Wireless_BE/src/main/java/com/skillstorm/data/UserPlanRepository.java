@@ -20,8 +20,10 @@ public interface UserPlanRepository extends JpaRepository<UserPlan,Integer> {
     // findAll() method already built on JpaRepository
 
 	@Query(value = "select * from UserPlan where userPlan_Id = ?1", nativeQuery = true)
-	public List<UserPlanLine> findByUserPlan_Id(int userPlan_Id);
+	public List<UserPlan> findByUserPlan_Id(int userPlan_Id);
 
+	@Query(value = "select * from UserPlan where user_Id = ?1", nativeQuery = true)
+	public List<UserPlan> findByUser_Id(int user_Id);
 }
 
 

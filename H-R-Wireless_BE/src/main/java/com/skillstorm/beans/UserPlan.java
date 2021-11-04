@@ -27,10 +27,6 @@ public class UserPlan {
 
     @Column(name="nickname")
     private String nickname;
-
-    
-    @OneToMany(mappedBy = "userPlan")
-	private Set<UserPlanLine> userPlanLines;
     
   
 	public UserPlan() {
@@ -96,16 +92,4 @@ public class UserPlan {
                 ", nickname='" + nickname + '\'' +
                 '}';
     }
-    
-    
-    
-    
-    public Set<UserPlanLine> getUserPlanLines() {
-  		return userPlanLines;
-  	}
-
-  	public void setUserPlanLines(Set<UserPlanLine> userPlanLines) {
-  		this.userPlanLines = userPlanLines;
-  	}
-
 }

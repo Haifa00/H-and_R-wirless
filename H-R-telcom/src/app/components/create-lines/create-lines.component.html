@@ -1,22 +1,33 @@
 
 
-<h1>Create Line</h1>
-
-<div *ngFor="let i of [1,2,3];let indexOfElement=index;" >
-    <h2>Line {{indexOfElement+1}}  :</h2>
-<select  [(ngModel)]="lines[indexOfElement].phoneNumber" >
-   <option value = "empty">----------</option>
-   <option *ngFor="let phoneNumber of phoneNumbers;" [ngValue]="phoneNumber" >{{phoneNumber}}</option>
-</select>
-
-<select [(ngModel)]="lines[indexOfElement].device_Id">
-   <option value = "empty">----------</option>
-    <option *ngFor="let device of devices" [ngValue]="device.device_id">{{device.model}}</option>
-    
- </select>
-
-</div>
-
-<a [routerLink]="['']"><button class="btn btn-sm btn-outline-primary mr-2" (click)="saveLines()">save line</button><a></a>
-
-<button class="btn btn-sm btn-outline-primary mr-2" (click)="refreshPhoneNumbers()">Refresh Phonenumbers</button>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Line #</th>
+          <th scope="col">Available Phonenumbers</th>
+          <th scope="col">Devices</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of [1,2,3];let indexOfElement=index;">
+          <td>{{indexOfElement+1}}</td>
+          <td class="overflow-hidden">
+               <select id="pN" [(ngModel)]="lines[indexOfElement].phonenumber" >
+                  <option value = "empty">----------</option>
+                  <option *ngFor="let phonenumber of phoneNumbers;" [ngValue]="phonenumber" >{{phonenumber}}</option>
+               </select>            
+          </td>
+          <td class="overflow-hidden">
+            <select [(ngModel)]="lines[indexOfElement].device_Id">
+               <option value = "empty">----------</option>
+                <option *ngFor="let device of devices" [ngValue]="device.device_id">{{device.model}}</option>
+             </select>
+          </td>
+        </tr>
+      </tbody>
+     
+    </table>
+     <button class="btn btn-sm btn-outline-primary mr-2" (click)="refreshPhoneNumbers()">Refresh Phonenumbers</button>
+      <button class="btn btn-sm btn-outline-primary mr-2" (click)="saveLines()">save lines</button>
+     
+      <app-devices-table></app-devices-table>

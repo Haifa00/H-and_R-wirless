@@ -19,7 +19,7 @@ public interface UserPlanLineRepository  extends JpaRepository<UserPlanLine, Int
 	public List<UserPlanLine> findByUserPlan_Id(int userPlan_Id);
 
  
-	public boolean existsByPhoneNumber(Long phoneNumber);
+	public boolean existsByPhonenumber(Long phonenumber);
 	
 	@Transactional(propagation = Propagation.REQUIRED)
 	public UserPlanLine save(UserPlanLine line);

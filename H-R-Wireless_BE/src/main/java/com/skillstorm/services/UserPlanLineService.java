@@ -23,7 +23,7 @@ public class UserPlanLineService {
 	
 	public List<UserPlanLine> findByUserPlan_Id(UserPlanLine userPlanLine) {
 		
-		return repository.findByUserPlan_Id(userPlanLine.getUserPlan().getId());
+		return repository.findByUserPlan_Id(userPlanLine.getUserplan_Id());
 	}
 	
 	public UserPlanLine save(UserPlanLine line) {
@@ -48,11 +48,11 @@ public class UserPlanLineService {
 	public List<Long> generatePhoneNumbers() {
 		
 		   List<Long> phoneNumbers = new ArrayList<Long>();
-		   long phoneNumber;
+		   long phonenumber;
 		   for( int i = 0; i < 12;){
-			  phoneNumber = Long.parseLong( (int)(Math.floor(10000 + Math.random() * 90000)) + "" + (int)(Math.floor(10000 + Math.random() * 90000)));
-		  if(!(repository.existsByPhoneNumber(phoneNumber))){
-		  phoneNumbers.add(phoneNumber);
+			   phonenumber = Long.parseLong( (int)(Math.floor(10000 + Math.random() * 90000)) + "" + (int)(Math.floor(10000 + Math.random() * 90000)));
+		  if(!(repository.existsByPhonenumber(phonenumber))){
+		  phoneNumbers.add(phonenumber);
 		  i++;
 		  }
 		}

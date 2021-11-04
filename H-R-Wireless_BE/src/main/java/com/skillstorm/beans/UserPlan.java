@@ -4,7 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name="userplan")
@@ -25,8 +28,9 @@ public class UserPlan {
 
     @Column(name="nickname")
     private String nickname;
-
-    public UserPlan() {
+    
+  
+	public UserPlan() {
     }
 
     public UserPlan(Plans plan,User user, String nickname) {

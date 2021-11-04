@@ -11,7 +11,7 @@ import java.util.Set;
 public class Plans {
     @Id
     @Column(name="planid")
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer planId;
 
     @Column(name="name")
@@ -30,8 +30,6 @@ public class Plans {
     @NotNull
     private int pricePerLine;
 
-    @OneToMany(mappedBy = "plan",cascade = CascadeType.ALL)
-    private Set<UserPlan> userPlan= new HashSet<>();
 
     public Plans() {
     }
@@ -42,6 +40,7 @@ public class Plans {
         this.description = description;
         this.pricePerLine = pricePerLine;
     }
+
 
     public Integer getPlanId() {
         return planId;
@@ -83,17 +82,7 @@ public class Plans {
         this.pricePerLine = pricePerLine;
     }
 
-//    public Set<UserPlan> getUserPlan() {
-//        return userPlan;
-//    }
 //
-//    public void setUserPlan(Set<UserPlan> userPlan) {
-//        this.userPlan = userPlan;
-//    }
-//
-//    public void addUserPlan(UserPlan userPlan){
-//        this.userPlan.add(userPlan);
-//    }
 
     @Override
     public boolean equals(Object o) {
@@ -118,4 +107,5 @@ public class Plans {
                 ", pricePerLine=" + pricePerLine +
                 '}';
     }
+
 }

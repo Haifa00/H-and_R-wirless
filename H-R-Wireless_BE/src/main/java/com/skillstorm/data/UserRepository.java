@@ -12,8 +12,8 @@ import com.skillstorm.beans.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 
-	@Query(value="select * From users Where userName = ?1",nativeQuery = true)
-	public List<User> findByUsername(String username);
+	@Query(value="select * From users Where userName = ?1 and password = ?2",nativeQuery = true)
+	public Optional<User> findByUsernameAndPassword(String username, String password);
 
 	// save method it's already built in
 

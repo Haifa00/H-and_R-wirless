@@ -9,7 +9,7 @@ import { User } from './models/User';
 export class UsersService {
 
   
-  url="http://localhost:8080/user/v1/user";
+  url="http://localhost:8080/user/v1";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -19,6 +19,10 @@ export class UsersService {
   }
 
   saveUser(user: User): Observable<any> {
-		return this.httpClient.post(this.url, user)
+		return this.httpClient.post(this.url+"/user", user)
 	}
+
+  getByUserNameAndPassword(username:String, password:String):Observable<any>{
+    return this.httpClient.get(this.url+"/"+username+"/"+password);
+  }
 }

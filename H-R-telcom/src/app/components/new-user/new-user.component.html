@@ -1,6 +1,6 @@
 
 
-<form class="container login-form " (ngSubmit)="handleSubmit()"> 
+<!-- <form class="container login-form " (ngSubmit)="handleSubmit()"> 
     <h3 class ="login-title">New User</h3>
     <hr>
       <div class="form-group row">
@@ -25,6 +25,30 @@
      <a  [routerLink]="['/plans']"><input type="submit" value="Login" class="btn btn-primary btn-lg btn-new"></a> 
      
    
-  </form>
+  </form> -->
+  
+
+  <div class="wrapper">
+    <ngb-alert [dismissible]="false" *ngIf="showAlert" type="danger">
+      <strong>Account creation failed!</strong> Please provide a unique Username.
+    </ngb-alert>
+    <div class="form-content">
+      
+      <div class="form-header">
+        <h3>New Account</h3>
+      <hr>
+      </div>
+      <form (ngSubmit)="handleSubmit()">
+        <input type="text" id="login" name="login" placeholder="Firstname"  [(ngModel)]="formData.firstname">
+        <input type="text" id="login" name="login" placeholder="Lastname" [(ngModel)]="formData.lastname">
+        <input type="text" id="login" name="login" placeholder="Username" [(ngModel)]="formData.username">
+        <input type="password" id="password" name="login" placeholder="Passowrd" [(ngModel)]="formData.password">
+        <input type="submit"  class="btn btn-primary btn-lg" value="Login">
+      </form>
+  
+      
+     
+    </div>
+  </div>
   
       

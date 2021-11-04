@@ -1,5 +1,7 @@
 package com.skillstorm.beans;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -33,18 +35,28 @@ public class User {
 	@Column(name="password")
 	private String password;
 
+
+	@JsonIgnoreProperties("user")
 	@OneToMany(mappedBy = "user")
-	private Set<UserPlan> userPlan= new HashSet<>();
+	private Set<UserPlan> userPlans= new HashSet<>();
 
 	public User() {
 	}
 
-	public User( String firstname, String lastname, String username, String password) {
+	public User( String firstname, String lastname, String username, String password, Set<UserPlan> userPlans) {
 
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.username = username;
 		this.password = password;
+		this.userPlans= userPlans;
+	}
+	public Set<UserPlan> getUserPlans() {
+		return userPlans;
+	}
+
+	public void setUserPlans(Set<UserPlan> userPlan) {
+		this.userPlans = userPlans;
 	}
 
 	public Integer getUserId() {
@@ -87,11 +99,15 @@ public class User {
 		this.password = password;
 	}
 
-//	public Set<UserPlan> getUserPlan() {
-//		return userPlan;
-//	}
-//
-//	public void setUserPlan(Set<UserPlan> userPlan) {
-//		this.userPlan = userPlan;
-//	}
+	@Override
+	public String toString() {
+		return "User{" +
+				"userId=" + userId +
+				", firstname='" + firstname + '\'' +
+				", lastname='" + lastname + '\'' +
+				", username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", userPlan=" + userPlans +
+				'}';
+	}
 }

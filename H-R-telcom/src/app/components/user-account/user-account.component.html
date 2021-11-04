@@ -3,26 +3,25 @@
     <a [routerLink]="['/plans']"><input type="submit" class="btn btn-primary btn-lg" value="New Plan"/></a>
   </p>
     
-        <div *ngFor="let plan of user.userPlans">
-          <p class="table-title"> {{plan.nickname}} ({{plan.plan.name}})</p>
+        <div *ngFor="let userPlan of user.userPlans; let indexOfElement=index;"  >
+          <p class="table-title"> {{userPlan.nickname}} {{userPlan.plan.name}}  </p>
           <table class="table table-striped">
-
-
             <thead>
               <tr>
                 <!-- <th scope="col">#</th> -->
-                <th scope="col">Number Of Lines</th>
                 <th scope="col">PhoneNumber</th>
                 <th scope="col">Device</th>
                 <th scope="col">Price</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>{{plan.plan.numberOfLines}}</td>
+              <tr *ngFor="let line of userPlan.lines">
+                <td> line.phonenumber</td>
+                <td> line.device_Id</td>
               </tr>
             </tbody>
           </table>
         </div>
 </div>
 
+<!-- user.userPlans[indexOfElement] -->

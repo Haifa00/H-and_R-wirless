@@ -38,7 +38,7 @@ public class UserPlanLineController {
 	private static Logger log = Logger.getAnonymousLogger();
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("getlines/{userPlan_Id}")
+	@GetMapping("getLines/{userPlan_Id}")
 	public ResponseEntity<List<UserPlanLine>> findByUserplan_Id(@PathVariable int userPlan_Id){
 		log.info("findAll() was called");
 		return  new ResponseEntity<List<UserPlanLine>>(service.findByUserPlan_Id(userPlan_Id), HttpStatus.OK);

@@ -27,10 +27,17 @@ export class UserPlanService {
 
 createUserPlan():Observable<any> {
   console.log(this.userPlan);
-  return this.httpClient.post(this.url + "/saveUserPlan", this.userPlan)
+  return this.httpClient.post(this.url + "/saveUserPlan", this.userPlan);
 
 }
+getUserPlanByUserPlanId(userPlan_Id:number):Observable<any>{
+  return this.httpClient.get(this.url + "/getUserPlanByUserPlanId/" +  userPlan_Id);
+}
+deletePlan(userPlan:UserPlan):Observable<any>{
+  console.log(userPlan);
 
+  return this.httpClient.post(this.url +"/deleteUserPlan", userPlan);
+}
 
 
 }

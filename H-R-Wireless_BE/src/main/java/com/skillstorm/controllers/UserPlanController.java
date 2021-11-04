@@ -1,6 +1,7 @@
 package com.skillstorm.controllers;
 
 import com.skillstorm.beans.Plans;
+import com.skillstorm.beans.User;
 import com.skillstorm.beans.UserPlan;
 import com.skillstorm.beans.UserPlanLine;
 import com.skillstorm.services.UserPlanService;
@@ -36,5 +37,14 @@ public class UserPlanController {
     	log.info("saveUserPlan() method called" + userplan.toString());
 		return new ResponseEntity<>(service.save(userplan) ,HttpStatus.OK);
 	}
+    
+
+    @CrossOrigin("http://localhost:4200")
+    @GetMapping("getUserPlanByUserPlanId/{userPlan_Id}")
+    public ResponseEntity<Optional<UserPlan>> findByUserPlanId(@PathVariable int userPlan_Id){
+    	log.info("" + userPlan_Id);
+    	
+        return new ResponseEntity<Optional<UserPlan>>(service.findByUserPlan_Id(userPlan_Id), HttpStatus.OK);
+    }
 
 }

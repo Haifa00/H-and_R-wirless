@@ -2,6 +2,7 @@ package com.skillstorm.controllers;
 
 import com.skillstorm.beans.Plans;
 import com.skillstorm.beans.UserPlan;
+import com.skillstorm.beans.UserPlanLine;
 import com.skillstorm.services.UserPlanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,8 +28,13 @@ public class UserPlanController {
         List<UserPlan> allUsersAndPlans= service.findAll();
         log.info("allUsersPlan" + allUsersAndPlans);
         return new ResponseEntity<>(allUsersAndPlans, HttpStatus.OK);
-
     }
 
+    @CrossOrigin("http://localhost:4200")
+    @PostMapping("saveUserPlan")
+    public ResponseEntity<UserPlan> save(@RequestBody UserPlan userplan){
+    	log.info("saveUserPlan() method called" + userplan.toString());
+		return new ResponseEntity<>(service.save(userplan) ,HttpStatus.OK);
+	}
 
 }

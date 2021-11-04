@@ -2,6 +2,7 @@ package com.skillstorm.services;
 
 
 import com.skillstorm.beans.UserPlan;
+import com.skillstorm.beans.UserPlanLine;
 import com.skillstorm.data.UserPlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,19 @@ public class UserPlanService {
 
         return allUsersAndPlans;
     }
+    
+    public List<UserPlan> findByUser_Id (int user_Id){
+        List<UserPlan> allUsersAndPlans = repository.findByUser_Id(user_Id);
+        log.info("serviceUserPlans" + allUsersAndPlans);
+
+        return allUsersAndPlans;
+    }
+
+	public UserPlan save(UserPlan userplan) {
+		
+		return repository.save(userplan);	
+		}
+    
 
 
 }

@@ -21,10 +21,6 @@ public class UserPlanLineService {
 	
 	private static Logger log = Logger.getAnonymousLogger();
 	
-	public List<UserPlanLine> findByUserPlan_Id(UserPlanLine userPlanLine) {
-		
-		return repository.findByUserPlan_Id(userPlanLine.getUserplan_Id());
-	}
 	
 	public UserPlanLine save(UserPlanLine line) {
 		return repository.save(line);
@@ -57,6 +53,10 @@ public class UserPlanLineService {
 		  }
 		}
 		return phoneNumbers;
+	}
+
+	public List<UserPlanLine> findByUserPlan_Id(int userPlan_Id) {
+		return repository.findByUserPlan_Id(userPlan_Id);
 	}
 
 //	public UserPlanLine update(UserPlanLine userPlanLine) {

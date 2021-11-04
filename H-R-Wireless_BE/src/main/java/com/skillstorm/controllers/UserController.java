@@ -62,6 +62,12 @@ public class UserController {
 		return new ResponseEntity<>(newUser, HttpStatus.CREATED);
 
 	}
+	
+	
+	@GetMapping("{userid}")
+	public ResponseEntity<Optional<User>> findByUserid(@PathVariable int userid){
+		return new ResponseEntity<>(service.findByUserid(userid), HttpStatus.OK);
+	}
 
 //	@PutMapping
 //	public ResponseEntity<User> updateUser(User user){

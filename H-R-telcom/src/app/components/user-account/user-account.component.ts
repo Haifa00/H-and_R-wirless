@@ -18,7 +18,7 @@ import { UsersService } from 'src/app/users.service';
 export class UserAccountComponent implements OnInit {
 
     userPlanTemp! : UserPlan;
-  
+    lines!:Lines[];
  
   // accountInfo = ACCOUNT;
   // workInfo=WORKACCOUNT;
@@ -31,20 +31,20 @@ export class UserAccountComponent implements OnInit {
     return this.dataService.sharedUser
   }
 
-  
-
   ngOnInit(): void {
     console.log(this.dataService.sharedUser);
      this.userService.getByUserId(this.dataService.sharedUser.userId).subscribe(result => {
       this.dataService.sharedUser = result;
 
   });
-  //this.user = this.dataService.sharedUser;
-//    this.dataService.sharedUser.userPlans?.forEach( (userPlan) => {
-// this.linesService.getLinesByUserPlan_Id(userPlan.id!)._subscribe((result: UserPlan) => {
-//   userPlan = result;
-// })
-//    });
+  this.user.userPlans?.forEach( element => {
+    this.linesService.getLinesByUserPlan_Id(element.id!).subscribe(result => {
+      element.lines = result;
+    });
+  });
+  for(let temp of this.user.userPlans!){
+    console.log(temp.lines);
+  }
 } 
 
 }

@@ -13,9 +13,10 @@ export class UserPlan{
     user?:User;
     lines?:Lines[] = [];
 
-    constructor(plan:Plan,user:User){
+    constructor(plan:Plan,user:User, lines?:Lines[]){
         this.plan=plan;
         this.user=user;
+        this.lines = lines;
     }
 
 

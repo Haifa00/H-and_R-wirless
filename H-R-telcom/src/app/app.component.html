@@ -4,8 +4,9 @@
 
   <nav class="navbar navbar-light padding-nav">
     <a class="navbar-brand" href="/login-form">
-      <span class="title">{{title}}</span>
+      <span class="title">H&R </span><span class="sub-title">WIRELESS</span>
     </a>
+    <span *ngIf="user" class="sub-title float-right">Welcome, {{user.firstname}}</span>
   </nav>
 
   

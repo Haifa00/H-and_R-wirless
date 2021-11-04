@@ -3,6 +3,7 @@ package com.skillstorm.controllers;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 import com.skillstorm.beans.Plans;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ import com.skillstorm.services.UserService;
 @CrossOrigin("http://localhost:4200")
 public class UserController {
 
+	private static Logger log = Logger.getAnonymousLogger();
+
 	@Autowired
 	UserService service;
 
@@ -43,10 +46,11 @@ public class UserController {
 
 
 
-	@GetMapping("/{username}")
-	public ResponseEntity<List<User>> findByUsername(@PathVariable String username){
+	@GetMapping("/{username}/{password}")
+	public ResponseEntity<Optional<User>> findByUsernameAndPassword(@PathVariable String username,
+																	@PathVariable String password) {
 
-		return new ResponseEntity<List<User>>(service.findByUserName(username),HttpStatus.OK);
+		return new ResponseEntity<Optional<User>>(service.findByUserNameAndPassword(username, password),HttpStatus.OK);
 	}
 
 	@PostMapping("user")

@@ -13,15 +13,16 @@ public class DeviceService {
 
 	@Autowired
 	DeviceRepository repository;
-	
+
 	public List<Device> findAll() {
-		
+
 		return repository.findAll();
 	}
-	
+
 	public Device saveDevice(Device device) {
 		return repository.save(device);
 	}
+}
 	
 //	public Device updateDevice(Device device) {
 //		return repository.update(device);

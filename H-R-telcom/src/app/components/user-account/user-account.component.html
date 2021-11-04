@@ -1,61 +1,24 @@
 <div class="container">
-  <ngb-accordion #acc="ngbAccordion">
-    <ngb-panel id="toggle-1" title="Family plan">
-      <ng-template ngbPanelContent>
-        <p class ="table-title">Family (Plan 1)</p>
-        <table class="table table-striped">
-          
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Phone Numberes</th>
-              <th scope="col">Devices</th>
-              <th scope="col">Activated On</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let info of accountInfo; index as i">
-              <th scope="row">{{ i + 1 }}</th>
-              <td>
-                {{ info.phoneNumber}}
-              </td>
-              <td>{{ info.device}}</td>
-              <td>{{ info.activatedOn }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel id="toggle-2" title="Work Plan">
-      <ng-template ngbPanelContent>
-        <p class ="table-title">Work (Plan 3)</p>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Phone Numberes</th>
-              <th scope="col">Devices</th>
-              <th scope="col">Activated On</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let info of workInfo; index as i">
-              <th scope="row">{{ i + 1 }}</th>
-              <td>
-                {{ info.phoneNumber}}
-              </td>
-              <td>{{ info.device}}</td>
-              <td>{{ info.activatedOn }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </ng-template>
-    </ngb-panel>
-  </ngb-accordion>
+  <p>
+    <a [routerLink]="['/plans']"><button class="btn btn-lg btn-primary">New Plan</button></a>
+  </p>
+    
+        <div *ngFor="let plan of user.userPlans">
+          <p class="table-title"> {{plan.nickname}} ({{plan.plan.name}})</p>
+          <table class="table table-striped">
 
-  <hr/>
-
-  <button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-1')">Family Plan</button>
-  <button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-2')">Work Plan</button>
-  <a [routerLink]="['/plans']"><button class="btn btn-sm btn-outline-primary mr-2">New Plan</button></a>
+            <thead>
+              <tr>
+                <!-- <th scope="col">#</th> -->
+              
+                <th scope="col">Number Of Lines</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{plan.plan.numberOfLines}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 </div>

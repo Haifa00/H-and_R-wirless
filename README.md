@@ -21,7 +21,7 @@ During these processes we `Deployed` our Application using `Azure` App service f
 
 In `Azure Pipeline` we bind it with a private Repository on gitHub to deploy it as `CI/CD` deployment.
 
-## App Service Application URL : [https://hrwireless.azurewebsites.net/]().
+## App Service Application URL : [https://hrwireless.azurewebsites.net/](https://hrwireless.azurewebsites.net/).
 
 <br>
 <br>
